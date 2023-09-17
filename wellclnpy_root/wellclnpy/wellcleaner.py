@@ -29,7 +29,7 @@ class wellCleaner:
         self.__keep_cols()
             
         
-    def clean(self):
+    def calc(self):
         self.df["V"] = self.__v_from_dt(self.df[self.Z_NM], self.df[self.DT_NM])
         self.df["AI"] = self.__ai_from_v_rho(self.df["V"], self.df[self.RES_NM])
         self.df["RICK_QC"] = self.__rick_qc(self.df[self.Z_NM])

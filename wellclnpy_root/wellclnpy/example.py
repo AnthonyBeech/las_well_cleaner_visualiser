@@ -1,5 +1,6 @@
 import os
-from wellclnpy import wellCleaner
+from wellcleaner import wellCleaner
+from pathlib import Path
 
 
 def list_las_files(directory):
@@ -10,7 +11,7 @@ def list_las_files(directory):
 
 
 # change dir to plae where .las files are stored
-FLOC = "/home/beechhceeb/scripts/wells/wellclnpy_root/data/"
+FLOC = str(Path(__file__).parent.parent) + "/tests/data"
 os.chdir(FLOC)
 
 las_files = list_las_files(FLOC)
@@ -18,6 +19,6 @@ las_files = list_las_files(FLOC)
 for file in las_files:
     print(file)
     well = wellCleaner(file)
-    well.clean()
+    well.calc()
     # wells.print_logs()
     well.write_las()
